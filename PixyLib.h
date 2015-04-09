@@ -1,6 +1,7 @@
 // PixyLib.h
 // GitHub : cortex-easyc-cmucam5
 // Web : cybertotem.com
+// Source : charmedlabs/pixy
 
 #ifndef PIXY_LIB_H_
 #define PIXY_LIB_H_
