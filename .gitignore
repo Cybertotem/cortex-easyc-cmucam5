@@ -2,6 +2,7 @@
 *.HEX
 *.LOG
 *.LST
+*.dat
 
 # Windows image file caches
 Thumbs.db
