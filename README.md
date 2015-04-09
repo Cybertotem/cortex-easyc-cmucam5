@@ -1,4 +1,4 @@
-# cortex-robotc-cmucam5
+# cortex-easyc-cmucam5
 
 Project Elements
 * VEX Cortex controller
