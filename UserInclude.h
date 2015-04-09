@@ -2,6 +2,10 @@
 #ifndef USERINCLUDE_H_
 #define USERINCLUDE_H_
 
-// TODO: add user code here
+// *** EasycFunctions.c definitions ***
+void _Initialize();
+void _Autonomous();
+void _OperatorControl();
 
 #endif // USERINCLUDE_H_
+
