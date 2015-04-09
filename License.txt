@@ -1,13 +1,16 @@
+// Copyright (C) 2015  Cybertotem.com
 //
-// begin license header
+// This program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License
+// version 2 as published by the Free Software Foundation.
 //
-// This file is part of a Cybertotem.com project
+// (http://www.gnu.org/licenses/gpl-2.0.html)
 //
-// All Cybertotem.com source code is provided under the terms of the
-// GNU General Public License v2 (http://www.gnu.org/licenses/gpl-2.0.html).
-// Those wishing to use Cybertotem.com source code, software and/or
-// technologies under different licensing terms should contact us at
-// contact@cybertotem.com.
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
 //
-// end license header
-//
+// You should have received a copy of the GNU General Public License
+// along with this program; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
