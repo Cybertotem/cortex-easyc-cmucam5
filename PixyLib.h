@@ -24,7 +24,7 @@
 
 // Some easyC definitions
 #define DEFAULT_PIXY_PORT		2
-#define DEFAULT_PIXY_BAUD_RATE	115200
+#define DEFAULT_PIXY_BAUD_RATE	19200
 
 // the routines
 //void PixyInit();
@@ -53,6 +53,7 @@ typedef struct
 
 // communication routines
 static uint16_t getWord(void);
+static uint8_t ReadSerialwBlock(void);
 //static int send(uint8_t *data, int len);
 
 //extern uint8_t getByte(void);
@@ -63,11 +64,24 @@ uint16_t getWord(void)
   // this routine assumes little endian 
   uint16_t w; 
   uint8_t c;
-  c = ReadSerialPort(DEFAULT_PIXY_PORT);
-  w = ReadSerialPort(DEFAULT_PIXY_PORT);
+  c = ReadSerialwBlock();
+  w = ReadSerialwBlock();
   w <<= 8;
   w |= c; 
   return w;
+}
+
+uint8_t ReadSerialwBlock(void)
+{
+	uint8_t out;
+	while(1)
+	{
+		if(GetSerialPortByteCount(DEFAULT_PIXY_PORT)!= 0x00)
+		{
+			out = ReadSerialPort(DEFAULT_PIXY_PORT);
+			return out;
+		}
+	}
 }
 
 /*
@@ -112,7 +126,7 @@ int PixyGetStart(void)
       return 1;
     }    
     else if (w==PIXY_START_WORDX) 
-    ReadSerialPort(DEFAULT_PIXY_PORT); // we're out of sync! (backwards)
+    ReadSerialwBlock(); // we're out of sync! (backwards)
     lastw = w; 
   }
 }
@@ -167,7 +181,8 @@ uint16_t getBlocks(uint16_t maxBlocks)
     if (checksum==sum)
       blockCount++;
     else
-      printf("checksum error!\n");
+      //printf("checksum error!\n");
+      PrintToScreen("checksum error!\n");
 
     w = getWord();
     if (w==PIXY_START_WORD)
