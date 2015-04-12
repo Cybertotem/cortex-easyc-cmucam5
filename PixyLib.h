@@ -22,9 +22,10 @@
 #define PIXY_SYNC_BYTE              0x5a
 #define PIXY_SYNC_BYTE_DATA         0x5b
 
-// Some easyC definitions
+// Cortex UART Settings
 #define DEFAULT_PIXY_PORT						2
 #define DEFAULT_PIXY_BAUD_RATE			19200
+#define BUFFER_REFILL_WAIT_TIME			2
 
 // the routines
 //void PixyInit();
@@ -76,7 +77,11 @@ uint8_t ReadSerialwBlock(void)
 	uint8_t out;
 	while(1)
 	{
-		if(GetSerialPortByteCount(DEFAULT_PIXY_PORT)!= 0x00)
+		if(GetSerialPortByteCount(DEFAULT_PIXY_PORT)== 0x00)
+		{
+			Wait(BUFFER_REFILL_WAIT_TIME);
+		}
+		else
 		{
 			out = ReadSerialPort(DEFAULT_PIXY_PORT);
 			return out;
