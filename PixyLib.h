@@ -25,7 +25,7 @@
 // Cortex UART Settings
 #define DEFAULT_PIXY_PORT						2
 #define DEFAULT_PIXY_BAUD_RATE			19200
-#define BUFFER_REFILL_WAIT_TIME			2
+#define BUFFER_REFILL_WAIT_TIME			1
 
 // the routines
 //void PixyInit();
@@ -79,7 +79,7 @@ uint8_t ReadSerialwBlock(void)
 	{
 		if(GetSerialPortByteCount(DEFAULT_PIXY_PORT)== 0x00)
 		{
-			Wait(BUFFER_REFILL_WAIT_TIME);
+			//Wait(BUFFER_REFILL_WAIT_TIME);
 		}
 		else
 		{

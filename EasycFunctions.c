@@ -46,6 +46,12 @@ void _OperatorControl()
     }
 }
 
+// Background process to read Pixy output
+void PixyReaderTask()
+{
+}
+
+// Outputs debug info to the easyC Terminal Window
 void RefreshDebugOutput()
 {
 	long fps = i - last_i;
